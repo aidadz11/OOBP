@@ -1,0 +1,1 @@
+<img src="{{asset('slike/logotip.png')}}" width="100px">
