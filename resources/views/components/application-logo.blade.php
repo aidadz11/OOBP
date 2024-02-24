@@ -1,1 +1,1 @@
-<img src="{{asset('slike/logotip.png')}}" width="100px">
+<img src="{{asset('slike\logo1.png')}}" width="100px">
