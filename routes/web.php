@@ -6,6 +6,7 @@ use App\Http\Controllers\ProizvodController;
 use App\Http\Controllers\ProizvodjacController;
 use App\Http\Controllers\PacijentController;
 use App\Http\Controllers\UpitiController;
+use App\Http\Controllers\WeatherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,13 @@ Route::middleware(['auth:sanctum','verified'])->get('upiti',[UpitiController::cl
 Route::middleware(['auth:sanctum','verified'])->post('file_add',[UslugeController::class, 'file_add'])->name('file_add');
 
 Route::middleware(['auth:sanctum','verified'])->post('process',[UslugeController::class, 'process'])->name('process');
+
+Route::get('/',function() {
+    $weatherController=new WeatherController();
+    $weatherData=$weatherController->getWeather();
+    return view('dashboard',[
+        'weatherData'=>$weatherData]);
+})->name('dashboard');
 
 
 

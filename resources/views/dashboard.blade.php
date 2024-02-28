@@ -3,14 +3,25 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Početna') }}
             
-
-        </h2>
-        <span class="float-left text-sm text-gray-600">{{date('D,d M Y H:i')}}</span>
+        </h2><span class="float-left text-sm text-gray-600">{{date('D,d M Y H:i')}}</span>
+        <div class="flex justify-center align-start py-5">
+            <div class="py-3 mx-3 md:bg-white-100">
+                <h1 class="text-3x1 font-bold mb-4">Vremenske informacije (openweathermap)</h1>
+                @if(isset($weatherData['main']['temp']))
+                <p class="text-lg mb-2 text-center">Opis vremena: {{$weatherData['weather'][0]['description']}}</p>
+                <p class="text-lg mb-2 text-center">Temperatura: {{round($weatherData['main']['temp']-273.15)}} °C</p>
+                @endif
+                
+                @if(isset($weatherData['weather'][0]['description']))
+                <p class="text-1g mb-2 text-center">Grad: {{$weatherData['name']}}</p>
+                @endif
+            </div>
+        </div> 
+       
     </x-slot>
     
-  
-
-
+    
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
