@@ -64,9 +64,9 @@ Route::middleware(['auth:sanctum','verified'])->post('process',[UslugeController
 
 Route::get('/',function() {
     $weatherController=new WeatherController();
-    $weatherData=$weatherController->getWeather();
+    $WeatherData=$weatherController->getWeather();
     return view('dashboard',[
-        'weatherData'=>$weatherData]);
+        'WeatherData'=>$WeatherData]);
 })->name('dashboard');
 
 

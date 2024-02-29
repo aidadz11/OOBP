@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Weather;
-use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Http;
+
 
 class WeatherController extends Controller
 {
@@ -18,13 +20,12 @@ class WeatherController extends Controller
     {
         $apiKey='83483851d6d05818c00e325c0d288e82';
         $city="Bihac";
-        $response=Http::get("https://api.openweathermap.org/data/2.5/weather",
-        [
+        $response=Http::get("https://api.openweathermap.org/data/2.5/weather",[
             'q'=>$city,
             'appid'=>$apiKey,
         ]);
-        $weatherData=$response->json();
-        return $weatherData;
+        $WeatherData=$response->json();
+        return $WeatherData;
     }
 
     /**
